@@ -14,7 +14,7 @@ class ThemeManager {
       data: ThemeData(
         primaryColor: Colors.black,
         scaffoldBackgroundColor: Colors.white,
-        secondaryHeaderColor: Colors.grey.shade100,
+        secondaryHeaderColor: Colors.grey.shade200,
         focusColor: Colors.blueAccent
       ),
     ),
@@ -24,7 +24,7 @@ class ThemeManager {
       data: ThemeData(
         primaryColor: Colors.white,
         scaffoldBackgroundColor: Colors.black,
-        secondaryHeaderColor: Colors.grey.shade100,
+        secondaryHeaderColor: Colors.grey.shade900,
         focusColor: Colors.blueAccent
       ), 
     )

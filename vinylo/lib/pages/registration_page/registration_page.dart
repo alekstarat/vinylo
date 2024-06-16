@@ -24,7 +24,12 @@ class RegistrationPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Есть аккаунт? "),
+                    Text(
+                      "Есть аккаунт? ",
+                      style: TextStyle(
+                        color: ThemeProvider.themeOf(context).data.primaryColor
+                      ),
+                      ),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)  => const LoginPage()));

@@ -29,14 +29,20 @@ class _TextfieldViewState extends State<TextfieldView> {
         style: TextStyle(
           color: ThemeProvider.themeOf(context).data.primaryColor,
           fontWeight: FontWeight.normal,
-          fontSize: 14
+          fontSize: 14,
+        
         ),
+        
         cursorColor: ThemeProvider.themeOf(context).data.primaryColor,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: ThemeProvider.themeOf(context).data.primaryColor,
-            )
+            ),
+            
+          ),
+          hintStyle: TextStyle(
+            color: ThemeProvider.themeOf(context).data.primaryColor
           ),
           suffix: widget.model.obscure ? IconButton(
             onPressed: () {
