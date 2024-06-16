@@ -7,8 +7,12 @@ environment:
   sdk: '>=3.4.3 <4.0.0'
 
 dependencies:
+  cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.6
+  provider: ^6.1.2
+  theme_provider: ^0.6.0
 
 dev_dependencies:
   flutter_test:
