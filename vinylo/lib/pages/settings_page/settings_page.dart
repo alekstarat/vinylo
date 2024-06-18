@@ -11,6 +11,15 @@ class SettingsPage extends StatelessWidget {
       backgroundColor: ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
       appBar: AppBar(
         centerTitle: true,
+<<<<<<< Updated upstream
+=======
+        shape: Border(
+          bottom: BorderSide(
+            style: BorderStyle.solid,
+            color: ThemeProvider.themeOf(context).data.primaryColor
+          )
+        ),
+>>>>>>> Stashed changes
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: ThemeProvider.themeOf(context).data.primaryColor,),
           onPressed: () {
