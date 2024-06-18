@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vinylo/widgets/carousel.dart';
+import 'package:vinylo/widgets/popular.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -25,6 +27,17 @@ class _MainScreenState extends State<MainScreen> {
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
         ],
       ),
+      body: Column(children: [
+        Carousel(),
+        Padding(
+          padding: EdgeInsets.all(10),
+        ),
+        Text(
+          'Популярные товары',
+          style: TextStyle(fontSize: 25),
+        ),
+        Popular(),
+      ]),
     );
   }
 }
