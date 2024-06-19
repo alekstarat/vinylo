@@ -9,21 +9,19 @@ final List<String> imgList = [
   'https://disco.market/optimpictures/images/05f719567411396f89ae099dcb2195b0/ysrr4eb8pscpuwa18mdjuaxwhtw66n6t.jpg.webp'
 ];
 
-CarouselSlider Carousel() {
+CarouselSlider carousel() {
   return CarouselSlider(
     options: CarouselOptions(
       viewportFraction: 1,
       height: 100.0,
       autoPlay: true,
-      autoPlayInterval: Duration(seconds: 5),
-      autoPlayAnimationDuration: Duration(milliseconds: 800),
+      autoPlayInterval: const Duration(seconds: 5),
+      autoPlayAnimationDuration: const Duration(milliseconds: 800),
     ),
     items: [0, 1, 2, 3, 4].map((i) {
       return Builder(
         builder: (BuildContext context) {
-          return Container(
-            child: Image.network(imgList[i]),
-          );
+          return Image.network(imgList[i]);
         },
       );
     }).toList(),

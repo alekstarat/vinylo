@@ -13,30 +13,39 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+          child: ListView(
+        children: [
+          ListTile(
+            title: const Text('Вход/регистрация'),
+            onTap: () => Navigator.of(context).pushNamed('/reg'),
+          ),
+          ListTile(
+            title: const Text('Каталог'),
+            onTap: () => Navigator.of(context).pushNamed('/catalog'),
+          ),
+          ListTile(
+            title: const Text('Настройки'),
+            onTap: () => Navigator.of(context).pushNamed('/settings'),
+          ),
+        ],
+      )),
       appBar: AppBar(
-        leading: PopupMenuButton(
-          icon: Icon(Icons.format_list_bulleted),
-          itemBuilder: (context) => [
-            PopupMenuItem(child: Text('Профиль пользователя')),
-            PopupMenuItem(child: Text('Каталог')),
-            PopupMenuItem(child: Text('Настройки')),
-          ],
-        ),
-        title: Text('Дискомаркет'),
+        title: const Text('Дискомаркет'),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
         ],
       ),
       body: Column(children: [
-        Carousel(),
-        Padding(
+        carousel(),
+        const Padding(
           padding: EdgeInsets.all(10),
         ),
-        Text(
+        const Text(
           'Популярные товары',
           style: TextStyle(fontSize: 25),
         ),
-        Popular(),
+        popular(),
       ]),
     );
   }

@@ -9,11 +9,9 @@ final List<String> popList = [
   'https://disco.market/optimpictures/images/d68c9a4703d3844c7834fe4e82084f22/ictstlgv9xk491sc7qmaja18g9tpsz9e.jpeg.webp'
 ];
 
-CarouselSlider Popular() {
+CarouselSlider popular() {
   return CarouselSlider(
     options: CarouselOptions(
-      // enlargeCenterPage: false,
-      // enlargeFactor: 1,
       viewportFraction: 0.7,
       height: 400.0,
     ),
