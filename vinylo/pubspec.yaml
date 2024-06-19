@@ -8,13 +8,6 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.8
-<<<<<<< Updated upstream
-  flutter:
-    sdk: flutter
-  flutter_bloc: ^8.1.6
-  provider: ^6.1.2
-  theme_provider: ^0.6.0
-=======
   email_validator: ^2.1.17
   equatable: ^2.0.5
   firebase_auth: ^5.1.0
@@ -29,7 +22,7 @@ dependencies:
   bloc: ^8.1.4
   user_repository:
     path: packages/user_repository
->>>>>>> Stashed changes
+
 
 dev_dependencies:
   flutter_test:
