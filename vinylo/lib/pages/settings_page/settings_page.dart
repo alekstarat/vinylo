@@ -8,33 +8,33 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
+      backgroundColor:
+          ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
       appBar: AppBar(
         centerTitle: true,
         shape: Border(
-          bottom: BorderSide(
-            style: BorderStyle.solid,
-            color: ThemeProvider.themeOf(context).data.primaryColor
-          )
-        ),
+            bottom: BorderSide(
+                style: BorderStyle.solid,
+                color: ThemeProvider.themeOf(context).data.primaryColor)),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: ThemeProvider.themeOf(context).data.primaryColor,),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: ThemeProvider.themeOf(context).data.primaryColor,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        backgroundColor: ThemeProvider.themeOf(context).data.secondaryHeaderColor,
-        title: Text(
-          "Настройки",
-          style: TextStyle(
-            color: ThemeProvider.themeOf(context).data.primaryColor,
-            fontWeight: FontWeight.bold
-          )
-        ),
+        backgroundColor:
+            ThemeProvider.themeOf(context).data.secondaryHeaderColor,
+        title: Text("Настройки",
+            style: TextStyle(
+                color: ThemeProvider.themeOf(context).data.primaryColor,
+                fontWeight: FontWeight.bold)),
       ),
       body: const Column(
         children: [
-          ChangeThemeOption()
+          ChangeThemeOption(),
         ],
       ),
     );

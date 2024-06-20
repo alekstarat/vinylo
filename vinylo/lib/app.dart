@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_item_repository/shop_item_repository.dart';
 import 'package:theme_provider/theme_provider.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:vinylo/pages/home_page/home_page.dart';
@@ -8,16 +9,19 @@ import 'package:vinylo/pages/login_page/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:vinylo/theme.dart';
 
+
 class App extends StatelessWidget {
   final UserRepository userRepository;
+  final DatabaseRepository databaseRepository;
 
-  const App(this.userRepository, {super.key});
+  App(this.userRepository, this.databaseRepository, {super.key});
+
+  final themeManager = ThemeManager();
+
+   
 
   @override
   Widget build(BuildContext context) {
-
-    final themeManager = ThemeManager();
-
     return Provider<ThemeManager>.value(
       value: themeManager,
       child: ThemeProvider(
@@ -34,7 +38,7 @@ class App extends StatelessWidget {
                       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
                         builder: (context, state) {
                           if (state.status == AuthenticationStatus.authenticated) {
-                            return const HomePage();
+                            return HomePage(databaseRepository);
                           }  else {
                             return const LoginPage();
                           }

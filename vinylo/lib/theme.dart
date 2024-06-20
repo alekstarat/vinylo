@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 class ThemeManager {
@@ -14,7 +15,7 @@ class ThemeManager {
       data: ThemeData(
         primaryColor: Colors.black,
         scaffoldBackgroundColor: Colors.white,
-        secondaryHeaderColor: Colors.grey.shade200,
+        secondaryHeaderColor: Colors.grey.shade300,
         focusColor: Colors.blueAccent
       ),
     ),
@@ -30,13 +31,16 @@ class ThemeManager {
     )
   ];
 
-  void changeTheme(context) {
+  Future<void> changeTheme(context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     if (isDarkmodeOn) {
       ThemeProvider.controllerOf(context).setTheme("light");
       isDarkmodeOn = false;
+      await prefs.setBool("isDarkmodeOn", false);
     } else {
       ThemeProvider.controllerOf(context).setTheme("dark");
       isDarkmodeOn = true;
+      await prefs.setBool("isDarkmodeOn", true);
     }
   }
 }

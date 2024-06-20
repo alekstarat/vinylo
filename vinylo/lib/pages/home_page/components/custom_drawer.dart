@@ -12,13 +12,27 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    bool isAuthed = false;
-
     return Drawer(
       backgroundColor: ThemeProvider.themeOf(context).data.secondaryHeaderColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const Padding(
+            padding: EdgeInsets.only(bottom: 16, top: 16),
+            child: CircleAvatar(
+              backgroundColor: Colors.grey,
+              radius: 50,
+              child: Center(
+                child: Icon(Icons.person_outline, color: Colors.white, size: 50,),
+              ),
+            ),
+          ),
+          const Divider(
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 16,
+            height: 5,
+          ),
           ListTile(
             title: Text("Профиль",
                 style: TextStyle(
@@ -30,6 +44,12 @@ class CustomDrawer extends StatelessWidget {
             ),
             onTap: () {},
           ),
+          const Divider(
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 48,
+            height: 5,
+          ),
           ListTile(
             title: Text("Сообщество",
                 style: TextStyle(
@@ -40,6 +60,12 @@ class CustomDrawer extends StatelessWidget {
               color: ThemeProvider.themeOf(context).data.primaryColor,
             ),
             onTap: () {},
+          ),
+          const Divider(
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 48,
+            height: 5,
           ),
           ListTile(
             title: Text("Настройки",
@@ -57,6 +83,12 @@ class CustomDrawer extends StatelessWidget {
                       builder: (context) => const SettingsPage()));
             },
           ),
+          const Divider(
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 48,
+            height: 5,
+          ),
           ListTile(
             title: Text("Помощь",
                 style: TextStyle(
@@ -68,15 +100,23 @@ class CustomDrawer extends StatelessWidget {
             ),
             onTap: () {},
           ),
+          const Divider(
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 16,
+            height: 5,
+          ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.35,
           ),
+          const Divider(
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 16,
+            height: 5,
+          ),
           BlocListener<SignInBloc, SignInState>(
-            listener: (context, state) {
-              if (state is SignInSuccess) {
-                isAuthed = true;
-              }
-            },
+            listener: (context, state) {},
             child: ListTile(
               title: const Text("Выйти",
                   style: TextStyle(
@@ -87,12 +127,16 @@ class CustomDrawer extends StatelessWidget {
                 color: Colors.red,
               ),
               onTap: () {
-                if (isAuthed) {
                   context.read<SignInBloc>().add(const SignOutRequired());
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
-                }
               },
             ),
+          ),
+          const Divider(
+            color: Colors.grey,
+            indent: 16,
+            endIndent: 16,
+            height: 5,
           ),
         ],
       ),

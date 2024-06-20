@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_item_repository/shop_item_repository.dart';
 import 'package:theme_provider/theme_provider.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:vinylo/pages/home_page/home_page.dart';
@@ -35,7 +36,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
 					setState(() {
 					  signUpRequired = false;
 					});
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(DatabaseRepository())));
 					// Navigator.pop(context);
 				} else if(state is SignUpProcess) {
 					setState(() {

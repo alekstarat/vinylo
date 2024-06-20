@@ -13,21 +13,19 @@ class ChangeThemeOption extends StatefulWidget {
 class _ChangeThemeOptionState extends State<ChangeThemeOption> {
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        "Тёмная тема",
-        style: TextStyle(
-          color: ThemeProvider.themeOf(context).data.primaryColor,
-          fontWeight: FontWeight.bold
-        )
-      ),
-      trailing: Switch(
-        activeColor: ThemeProvider.themeOf(context).data.secondaryHeaderColor,
-        value: Provider.of<ThemeManager>(context).isDark,
-        onChanged:(bool isSelected) { 
-          Provider.of<ThemeManager>(context, listen: false).changeTheme(context);
-        },
-      ),
-    );
+        return ListTile(
+            title: Text("Тёмная тема",
+                style: TextStyle(
+                    color: ThemeProvider.themeOf(context).data.primaryColor,
+                    fontWeight: FontWeight.bold)),
+            trailing: Switch(
+              activeColor: Colors.grey,
+              value: Provider.of<ThemeManager>(listen: false, context).isDark,
+              onChanged: (bool isSelected) {
+                Provider.of<ThemeManager>(context, listen: false)
+                .changeTheme(context);
+              },
+            )
+          );
   }
 }

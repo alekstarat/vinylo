@@ -1,26 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_item_repository/shop_item_repository.dart';
 import 'package:theme_provider/theme_provider.dart';
 import 'package:vinylo/blocs/authentication_bloc/authentication_bloc.dart';
+import 'package:vinylo/pages/home_page/blocs/database_bloc/database_bloc.dart';
 import 'package:vinylo/pages/home_page/components/custom_drawer.dart';
+import 'package:vinylo/pages/home_page/home_page_content.dart';
 import 'package:vinylo/pages/login_page/blocs/sign_in_bloc/sign_in_bloc.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+
+  final DatabaseRepository databaseRepository;
+
+  const HomePage(this.databaseRepository, {super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: BlocProvider(
           create: (context) => SignInBloc(
-            userRepository: context.read<AuthenticationBloc>().userRepository
-          ),
+              userRepository:
+                  context.read<AuthenticationBloc>().userRepository),
           child: const CustomDrawer(),
         ),
         appBar: AppBar(
@@ -53,8 +60,14 @@ class _HomePageState extends State<HomePage> {
           title: Text("VinylO",
               style: TextStyle(
                   color: ThemeProvider.themeOf(context).data.primaryColor,
+                  fontFamily: "Ubuntu",
                   fontWeight: FontWeight.bold)),
         ),
-        body: Container());
+        body: RepositoryProvider<DatabaseBloc>(
+          create: (context) => DatabaseBloc(
+            databaseRepository: widget.databaseRepository
+          ),
+          child: const HomePageContent(),
+        ));
   }
 }

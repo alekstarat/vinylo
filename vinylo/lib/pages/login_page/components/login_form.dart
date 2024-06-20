@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_item_repository/shop_item_repository.dart';
 import 'package:theme_provider/theme_provider.dart';
 import 'package:vinylo/pages/home_page/home_page.dart';
 import 'package:vinylo/pages/login_page/blocs/sign_in_bloc/sign_in_bloc.dart';
@@ -31,7 +32,7 @@ class _LoginFormState extends State<LoginForm> {
           setState(() {
             signInRequired = false;
           });
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(DatabaseRepository())));
         } else if (state is SignInProcess) {
           setState(() {
             signInRequired = true;
