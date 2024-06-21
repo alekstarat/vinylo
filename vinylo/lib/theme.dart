@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:theme_provider/theme_provider.dart';
 
-class ThemeManager {
+class ThemeManager{
 
   bool isDarkmodeOn = false;
   bool get isDark => isDarkmodeOn;
@@ -31,16 +31,18 @@ class ThemeManager {
     )
   ];
 
+    
+
   Future<void> changeTheme(context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (isDarkmodeOn) {
       ThemeProvider.controllerOf(context).setTheme("light");
       isDarkmodeOn = false;
-      await prefs.setBool("isDarkmodeOn", false);
+      await prefs.setString("theme", "light");
     } else {
       ThemeProvider.controllerOf(context).setTheme("dark");
       isDarkmodeOn = true;
-      await prefs.setBool("isDarkmodeOn", true);
+      await prefs.setString("theme", "dark");
     }
   }
 }

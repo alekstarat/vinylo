@@ -18,35 +18,38 @@ class App extends StatelessWidget {
 
   final themeManager = ThemeManager();
 
-   
-
   @override
   Widget build(BuildContext context) {
-    return Provider<ThemeManager>.value(
-      value: themeManager,
-      child: ThemeProvider(
-        themes: themeManager.themes,
-        child: ThemeConsumer(
-          child: Builder(
-
-              builder: (themeContext) => RepositoryProvider<AuthenticationBloc>(
-                    create: (context) =>
-                        AuthenticationBloc(userRepository: userRepository),
-                    child: MaterialApp(
-                      theme: ThemeProvider.themeOf(themeContext).data,
-                      debugShowCheckedModeBanner: false,
-                      home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                        builder: (context, state) {
-                          if (state.status == AuthenticationStatus.authenticated) {
-                            return HomePage(databaseRepository);
-                          }  else {
-                            return const LoginPage();
-                          }
-                        },
+    return Provider<List<ShopItemModel>>.value(
+      // ignore: prefer_const_literals_to_create_immutables
+      value: [
+        
+      ],
+      child: Provider<ThemeManager>.value(
+        value: themeManager,
+        child: ThemeProvider(
+          themes: themeManager.themes,
+          child: ThemeConsumer(
+            child: Builder(
+                builder: (themeContext) => RepositoryProvider<AuthenticationBloc>(
+                      create: (context) =>
+                          AuthenticationBloc(userRepository: userRepository),
+                      child: MaterialApp(
+                        theme: ThemeProvider.themeOf(themeContext).data,
+                        debugShowCheckedModeBanner: false,
+                        home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                          builder: (context, state) {
+                            if (state.status == AuthenticationStatus.authenticated) {
+                              return HomePage(databaseRepository);
+                            }  else {
+                              return const LoginPage();
+                            }
+                          },
+                        ),
                       ),
-                    ),
-                  )),
-
+                    )),
+      
+          ),
         ),
       ),
     );

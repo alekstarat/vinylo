@@ -10,7 +10,12 @@ abstract class DatabaseState extends Equatable {
 final class DatabaseInitial extends DatabaseState {}
 
 class DatabaseLoading extends DatabaseState {}
-class DatabaseLoaded extends DatabaseState {}
+class DatabaseLoaded extends DatabaseState {
+
+  final Stream<QuerySnapshot<Object?>> items;
+
+  const DatabaseLoaded(this.items);
+}
 
 class DatabaseLoadFailure extends DatabaseState{
   final String? message;
