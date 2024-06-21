@@ -18,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           ListTile(
             title: const Text('Вход/регистрация'),
-            onTap: () => Navigator.of(context).pushNamed('/reg'),
+            onTap: () => Navigator.of(context).pushNamed('/login'),
           ),
           ListTile(
             title: const Text('Каталог'),

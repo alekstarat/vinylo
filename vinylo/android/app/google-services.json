@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "20599898782",
+    "project_id": "vinylo-65983",
+    "storage_bucket": "vinylo-65983.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20599898782:android:765ccb8b5aee982911318f",
+        "android_client_info": {
+          "package_name": "com.vinylo.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDidRpU81HLRG0gFfdL5x8c22ze7QNKJ10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
