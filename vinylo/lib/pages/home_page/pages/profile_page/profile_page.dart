@@ -22,9 +22,10 @@ class ProfilePage extends StatelessWidget {
               centerTitle: true,
               actions: [
                 IconButton(
-                  onPressed: () {}, 
-                  icon: Icon(Icons.notifications_outlined, color: ThemeProvider.themeOf(context).data.primaryColor, size: 26)
-                )
+                    onPressed: () {},
+                    icon: Icon(Icons.notifications_outlined,
+                        color: ThemeProvider.themeOf(context).data.primaryColor,
+                        size: 26))
               ],
               leading: IconButton(
                 icon: Icon(
@@ -45,10 +46,7 @@ class ProfilePage extends StatelessWidget {
               stream: context.read<AuthenticationBloc>().userRepository.user,
               builder: (context, snapshot) {
                 // ignore: avoid_print
-                print(snapshot.data?.photoURL);
-                // ignore: avoid_print
-                print(snapshot.data?.email);
-
+                print("                                 ");
                 return ProfilePageView(
                   image: snapshot.data?.photoURL,
                   name: snapshot.data?.displayName == ""

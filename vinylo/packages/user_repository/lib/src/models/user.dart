@@ -1,27 +1,32 @@
 import 'package:equatable/equatable.dart';
 import 'package:user_repository/src/entities/entities.dart';
 
+// ignore: must_be_immutable
 class MyUser extends Equatable {
 
   final String userId, email, name;
+  List<dynamic> cards;
 
-  const MyUser({required this.userId, required this.email, required this.name});
+  MyUser({required this.userId, required this.email, required this.name, required this.cards});
 
-  static const empty = MyUser(
+  static var empty = MyUser(
     userId: "",
     email: "", 
-    name: ""
+    name: "",
+    cards: []
   );
 
   MyUser copyWith({
     String? userId,
     String? email,
-    String? name
+    String? name,
+    List<dynamic>? cards
   }) {
     return MyUser(
       userId: userId ?? this.userId, 
       email: email ?? this.email, 
-      name: name ?? this.name
+      name: name ?? this.name,
+      cards: cards ?? this.cards
     );
   }
 
@@ -29,7 +34,8 @@ class MyUser extends Equatable {
     return MyUserEntity(
       userId: userId, 
       email: email, 
-      name: name
+      name: name,
+      cards: cards
     );
   }
 
@@ -37,11 +43,12 @@ class MyUser extends Equatable {
     return MyUser(
       userId: entity.userId, 
       email: entity.email, 
-      name: entity.name
+      name: entity.name,
+      cards: entity.cards
     );
   }
 
   @override
-  List<Object?> get props => [userId, email, name];
+  List<Object?> get props => [userId, email, name, cards];
 
 }

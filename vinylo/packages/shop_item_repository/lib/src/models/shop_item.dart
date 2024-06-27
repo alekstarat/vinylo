@@ -39,6 +39,24 @@ class ShopItemModel{
     };
   }
 
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    return (other is ShopItemModel
+      && name == other.name
+      && desc == other.desc
+      && image == other.image
+      && artist == other.artist 
+      && cost == other.cost 
+      && rating == other.rating
+    );
+  }
+
+  @override
+    int get hashCode => Object.hash(name, cost);
+
   ShopItemModel copyWith({
 
     String? name,

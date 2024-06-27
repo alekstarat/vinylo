@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_item_repository/shop_item_repository.dart';
 import 'package:theme_provider/theme_provider.dart';
+import 'package:vinylo/models/cart.dart';
 import 'package:vinylo/pages/home_page/components/custom_divider.dart';
 import 'package:vinylo/pages/home_page/pages/cart_page/blocs/cart_bloc/cart_bloc.dart';
 
@@ -18,7 +17,7 @@ class _CartItemsState extends State<CartItems> {
   Widget build(BuildContext context) {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
-        var list = context.read<List<ShopItemModel>>();
+        var list = context.read<CartModel>().cart;
         return ListView.separated(
           itemBuilder: (context, index) {
             return ListTile(

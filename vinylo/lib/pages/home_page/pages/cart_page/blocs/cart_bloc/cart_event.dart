@@ -17,3 +17,7 @@ class CartItemDeletedEvent extends CartEvent{
   const CartItemDeletedEvent({required this.index});
 }
 
+class CartButtonPressedEvent extends CartEvent{
+
+}
+

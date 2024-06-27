@@ -1,16 +1,19 @@
 import 'package:equatable/equatable.dart';
 
+// ignore: must_be_immutable
 class MyUserEntity extends Equatable{
 
   final String userId, email, name;
+  List<dynamic> cards;
 
-  const MyUserEntity({required this.userId, required this.email, required this.name});
+  MyUserEntity({required this.userId, required this.email, required this.name, required this.cards});
 
   Map<String, Object?> toDocument() {
     return {
       'userId': userId,
       'email': email,
-      'name': name
+      'name': name,
+      'cards' : cards
     };
   }
 
@@ -18,11 +21,12 @@ class MyUserEntity extends Equatable{
     return MyUserEntity(
       userId: doc['userId'], 
       email: doc['email'], 
-      name: doc['name']
+      name: doc['name'],
+      cards: doc['cards']
     );
   }
 
   @override
-  List<Object?> get props => [userId, email, name];
+  List<Object?> get props => [userId, email, name, cards];
 
 }

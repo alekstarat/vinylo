@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:theme_provider/theme_provider.dart';
 
+// ignore: must_be_immutable
 class CustomTile extends StatelessWidget {
 
   final Icon icon;
   final String label;
+  Function? onTap;
 
-  const CustomTile({super.key, required this.icon, required this.label});
+  CustomTile({super.key, required this.icon, required this.label, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () => onTap!(),
       leading: icon,
       title: Text(
         label,

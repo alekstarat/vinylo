@@ -40,6 +40,7 @@ class LoginPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
+                            settings: const RouteSettings(name: "Home"),
                               builder: (context) => const RegistrationPage()));
                     },
                     child: Text(

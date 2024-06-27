@@ -7,8 +7,8 @@ import 'package:vinylo/blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:vinylo/pages/home_page/blocs/database_bloc/database_bloc.dart';
 import 'package:vinylo/pages/home_page/components/custom_drawer.dart';
 import 'package:vinylo/pages/home_page/home_page_content.dart';
-import 'package:vinylo/pages/home_page/pages/cart_page/blocs/cart_bloc/cart_bloc.dart';
 import 'package:vinylo/pages/home_page/pages/cart_page/cart_page.dart';
+import 'package:vinylo/pages/home_page/pages/profile_page/pages/payments_page/blocs/payment_bloc/payment_bloc.dart';
 import 'package:vinylo/pages/login_page/blocs/sign_in_bloc/sign_in_bloc.dart';
 
 class HomePage extends StatefulWidget {
@@ -54,7 +54,12 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const CartPage()));
+                        builder: (context) => BlocProvider<PaymentBloc>(
+                              create: (_) => PaymentBloc(
+                                databaseRepository: context.read<DatabaseRepository>()
+                              ),
+                              child: CartPage(),
+                            )));
               },
               icon: Icon(
                 CupertinoIcons.cart,

@@ -11,4 +11,8 @@ class CartCollecting extends CartState {
   final List<ShopItemModel> items = [];
 }
 
-class CartReady extends CartState{}
+class CartReady extends CartState{
+  final List<ShopItemModel> items;
+
+  const CartReady({required this.items});
+}

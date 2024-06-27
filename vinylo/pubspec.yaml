@@ -25,6 +25,8 @@ dependencies:
     path: packages/user_repository
   shop_item_repository:
     path: packages/shop_item_repository
+  payments_repository:
+    path: packages/payments_repository
   carousel_slider: ^4.2.1
   cloud_firestore: ^5.0.1
   dots_indicator: ^3.0.0

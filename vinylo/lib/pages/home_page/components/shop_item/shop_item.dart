@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_item_repository/shop_item_repository.dart';
 import 'package:theme_provider/theme_provider.dart';
+import 'package:vinylo/models/cart.dart';
 import 'package:vinylo/pages/home_page/components/shop_item/shop_item_photo.dart';
 import 'package:vinylo/pages/home_page/pages/cart_page/blocs/cart_bloc/cart_bloc.dart';
 import 'package:vinylo/pages/home_page/pages/shop_item_page/shop_item_page.dart';
@@ -57,7 +58,7 @@ class ShopItem extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => BlocProvider<CartBloc>(
                                   create: (_) => CartBloc(
-                                    cart: context.read<List<ShopItemModel>>()
+                                    cart: context.read<CartModel>().cart
                                   ),
                                   child: ShopItemPage(
                                       id: id,
