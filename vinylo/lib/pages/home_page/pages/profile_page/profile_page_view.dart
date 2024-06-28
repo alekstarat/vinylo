@@ -4,6 +4,7 @@ import 'package:shop_item_repository/shop_item_repository.dart';
 import 'package:theme_provider/theme_provider.dart';
 import 'package:vinylo/pages/home_page/components/custom_divider.dart';
 import 'package:vinylo/pages/home_page/pages/profile_page/components/custom_tile.dart';
+import 'package:vinylo/pages/home_page/pages/profile_page/pages/history_page/history_page.dart';
 
 import 'package:vinylo/pages/home_page/pages/profile_page/pages/payments_page/payments_page.dart';
 
@@ -52,7 +53,9 @@ class ProfilePageView extends StatelessWidget {
               color: ThemeProvider.themeOf(context).data.primaryColor,
             ),
             label: "История заказов",
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const HistoryPage()));
+            },
           ),
           const CustomDivider(),
           CustomTile(

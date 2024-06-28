@@ -6,7 +6,12 @@ part 'order_event.dart';
 part 'order_state.dart';
 
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
-  OrderBloc() : super(OrderInitial()) {
+
+  final DatabaseRepository databaseRepository;
+
+  OrderBloc({
+    required this.databaseRepository
+  }) : super(OrderInitial()) {
     on<OrderLoadEvent>((event, emit) async {
       emit(OrderLoadingState());
       await Future.delayed(const Duration(seconds: 1));

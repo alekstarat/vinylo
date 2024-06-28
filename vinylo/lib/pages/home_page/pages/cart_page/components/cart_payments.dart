@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_item_repository/shop_item_repository.dart';
 import 'package:theme_provider/theme_provider.dart';
 import 'package:vinylo/blocs/authentication_bloc/authentication_bloc.dart';
-import 'package:vinylo/models/cart.dart';
 import 'package:vinylo/pages/home_page/pages/cart_page/blocs/cart_bloc/cart_bloc.dart';
+import 'package:vinylo/pages/home_page/pages/cart_page/pages/order_page/blocs/order_bloc/order_bloc.dart';
 import 'package:vinylo/pages/home_page/pages/cart_page/pages/order_page/order_page.dart';
 import 'package:vinylo/pages/home_page/pages/profile_page/pages/payments_page/blocs/payment_bloc/payment_bloc.dart';
 
@@ -33,11 +33,10 @@ class _CartPaymentsState extends State<CartPayments> {
               if (snapshot.hasError) {
                 return Text(snapshot.error.toString());
               }
-        
+
               var list = snapshot.data;
               return Padding(
-                padding:
-                    const EdgeInsets.only(top: 16, left: 8, right: 8),
+                padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,8 +44,7 @@ class _CartPaymentsState extends State<CartPayments> {
                     SizedBox(
                       height: 200,
                       child: ListView.builder(
-                          itemCount:
-                              list != null ? list['cards'].length : 0,
+                          itemCount: list != null ? list['cards'].length : 0,
                           itemBuilder: (context, index) {
                             return ListTile(
                               onTap: () {
@@ -87,9 +85,7 @@ class _CartPaymentsState extends State<CartPayments> {
                       ),
                       leading: Icon(
                         Icons.add,
-                        color: ThemeProvider.themeOf(context)
-                            .data
-                            .primaryColor,
+                        color: ThemeProvider.themeOf(context).data.primaryColor,
                       ),
                     )
                   ],
@@ -200,13 +196,22 @@ class _CartPaymentsState extends State<CartPayments> {
                     child: GestureDetector(
                       onTap: () {
                         if (selectedIndex != 0) {
-                          context.read<CartBloc>().add(CartButtonPressedEvent());
+                          context
+                              .read<CartBloc>()
+                              .add(CartButtonPressedEvent());
                           var order = context.read<CartBloc>().cart;
                           Navigator.pop(context);
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => OrderPage(order: order)));
-                          context.read<CartModel>().clearCart();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BlocProvider(
+                                        create: (_) => OrderBloc(
+                                          databaseRepository: context.read<DatabaseRepository>()
+                                        ),
+                                        child: OrderPage(order: order),
+                                      )));
+                          //context.read<CartModel>().clearCart();
                         }
-                        
                       },
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 300),

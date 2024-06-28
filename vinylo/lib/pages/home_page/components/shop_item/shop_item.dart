@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_item_repository/shop_item_repository.dart';
 import 'package:theme_provider/theme_provider.dart';
 import 'package:vinylo/models/cart.dart';
 import 'package:vinylo/pages/home_page/components/shop_item/shop_item_photo.dart';

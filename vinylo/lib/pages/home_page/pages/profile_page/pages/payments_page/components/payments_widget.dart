@@ -36,9 +36,8 @@ class _PaymentsWidgetState extends State<PaymentsWidget> {
             if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             }
-
             var list = snapshot.data;
-            
+            print("                                                ");
             return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
