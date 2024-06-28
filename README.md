@@ -5,6 +5,14 @@
 
 ## Скриншоты
 
+| Home Page | Shop Item Page | Login Page |
+|-----------|----------------|------------|
+|![homepage](https://github.com/alekstarat/vinylo/assets/90523142/1616b3dc-0616-4e9e-9081-3b0115168421)| ![shopitempage](https://github.com/alekstarat/vinylo/assets/90523142/d0f50402-3ee8-4a30-ac56-43192162501c) | ![loginpage](https://github.com/alekstarat/vinylo/assets/90523142/3572d823-9935-4f14-ba0d-b9d4cbdcc6c7)
+| Cart Page | Order Page | Profile Page |
+|![cartpage](https://github.com/alekstarat/vinylo/assets/90523142/f2e5bb56-ad3c-4dca-8c95-63662774aa92)|![confirmorderpage](https://github.com/alekstarat/vinylo/assets/90523142/0bbeb1d2-24f6-4d36-96a8-97b731cb9112) | ![profilepage](https://github.com/alekstarat/vinylo/assets/90523142/e7bbd719-9f14-47b5-a80b-572492aaa6e3)
+
+
+
 ## Стек технологий
 > - firebase_auth
 > - cloud_firestore
@@ -181,7 +189,6 @@
           \---components
                   change_theme_option.dart
 ```
-  \
 </details>
 
 
